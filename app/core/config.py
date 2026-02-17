@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     )
 
     PROJECT_NAME: str = "Invoice Matcher Agent"
+    VERSION: str = "0.1.0"
     DEBUG: bool = False
     API_V1_STR: str = "/api/v1"
     SECRET_KEY: SecretStr
