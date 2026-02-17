@@ -20,6 +20,8 @@ class Settings(BaseSettings):
     ENVIRONMENT: Literal["local", "staging", "production"] = "local"
     EMAIL_USER: str | None = None
     EMAIL_PASSWORD: SecretStr | None = None
+    GEMINI_API_KEY: SecretStr | None = None
+
 
 
 settings = Settings()
