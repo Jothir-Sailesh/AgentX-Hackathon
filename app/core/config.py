@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 8 days
     LLM_API_KEY: SecretStr
     ENVIRONMENT: Literal["local", "staging", "production"] = "local"
+    EMAIL_USER: str | None = None
+    EMAIL_PASSWORD: SecretStr | None = None
 
 
 settings = Settings()
