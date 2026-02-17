@@ -1,0 +1,7 @@
+Testing EmailParser...
+Extracting PDFs...
+✅ Successfully extracted 1 PDF.
+   Original Filename: test_invoice.pdf
+   Saved Path: tests\data\pdfs\test_invoice_0efd237a.pdf
+✅ File exists on disk.
+✅ Cleaned up test file.
