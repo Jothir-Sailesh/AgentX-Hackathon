@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "invoice-matcher-agent"
+version = "0.1.0"
+description = "AI Agent for 3-Way Invoice Matching"
+authors = [{name = "AgentX Team", email = "agentx@example.com"}]
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "pytest>=7.0.0",
+    "python-multipart",
+    "requests"
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "isort",
+    "mypy"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]

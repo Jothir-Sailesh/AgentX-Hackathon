@@ -1,22 +1,22 @@
-from pydantic_settings import BaseSettings
-from functools import lru_cache
+
+from typing import Literal
+from pydantic import SecretStr
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_ignore_empty=True,
+        extra="ignore",
+    )
+
     PROJECT_NAME: str = "Invoice Matcher Agent"
-    VERSION: str = "0.1.0"
-    API_PREFIX: str = "/api/v1"
-    
-    # Security
-    SECRET_KEY: str = "change_me_in_production"
-    
-    # External Services
-    LLM_API_KEY: str = ""
+    DEBUG: bool = False
+    API_V1_STR: str = "/api/v1"
+    SECRET_KEY: SecretStr
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 8 days
+    LLM_API_KEY: SecretStr
+    ENVIRONMENT: Literal["local", "staging", "production"] = "local"
 
-    class Config:
-        env_file = ".env"
 
-@lru_cache()
-def get_settings():
-    return Settings()
-
-settings = get_settings()
+settings = Settings()
